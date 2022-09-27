@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expanding menu</title>
+
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 60%;
+        display: flex;
+      }
+
+      .wrapper {
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .wrapper div {
+        border: 1px solid black;
+        border-radius: 2px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+        flex-basis: 30%;
+        text-align: center;
+        padding: 5px;
+      }
+
+      .wrapper div a {
+        text-decoration: none;
+        color: black;
+      }
+
+      button {
+        width: 10%;
+        padding: 5px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+      }
+
+      button:hover {
+        transform: scale(1.1);
+      }
+
+      .container.active {
+        width: 5%;
+      }
+
+      .container.active .wrapper {
+        display: none;
+      }
+
+      .container.active button {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div><a href="#">HOME</a></div>
+        <div><a href="#">MENU</a></div>
+        <div><a href="#">ABOUT US</a></div>
+      </div>
+      <button>X</button>
+    </div>
+
+    <script>
+      btn = document.querySelector("button");
+      container = document.querySelector(".container");
+
+      btn.addEventListener("click", function () {
+        container.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
